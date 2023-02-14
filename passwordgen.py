@@ -4,9 +4,11 @@ Het wachtwoord moet aan de volgende eisen voldoen:
     # 2 tot 6 hoofdletters.
     # Minimaal 8 kleine letters.
     # 3 speciale tekens uit de volgende reeks: @ # $ % & _ ?.
-    De speciale tekens mogen niet op de eerste of laatste positie staan en ook niet op een vaste plek.
-    4 tot 7 cijfers (0 t/m 9).
-    Op de eerste 3 posities mag geen cijfer staan.
+    # De speciale tekens mogen niet op de eerste
+     laatste positie staan 
+     ook niet op een vaste plek.
+    # 4 tot 7 cijfers (0 t/m 9).
+    # Op de eerste 3 posities mag geen cijfer staan.
 '''
 # necessary imports 
 import string, random
@@ -20,13 +22,13 @@ pwd_lenght = 24
 # generate a pwd_string
 pwd = []
 
-for i in range(random.randrange(2, 6)):
+for letter_upper in range(random.randrange(2, 6)):
     pwd.append(lettersu[random.randrange(len(lettersu))])
-for i in range(3):
-    pwd.append(tekens[random.randrange(len(tekens))])
-for i in range(random.randrange(4, 7)):
-    pwd.append(cijfers[random.randrange(len(cijfers))])
-for i in range(pwd_lenght - len(pwd)):
+for puncuations in range(3):
+    pwd.insert(6, tekens[random.randrange(len(tekens))])
+for numbers in range(random.randrange(4, 7)):
+    pwd.insert(3, cijfers[random.randrange(len(cijfers))])
+for letter_lower in range(pwd_lenght - len(pwd)):
     pwd.append(lettersc[random.randrange(len(lettersc))])
 
 print(pwd)
